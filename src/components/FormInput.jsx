@@ -1,8 +1,8 @@
 import React from "react";
 
-const Form = ({type , label , defaultValue , name}) => {
+const Form = ({type , label , defaultValue , name , size}) => {
   return (
-    <label className="form-control ">
+    <div className="form-control ">
       <div className="label">
         <span className="label-text"> {label} </span>
       </div>
@@ -10,11 +10,9 @@ const Form = ({type , label , defaultValue , name}) => {
         type={type}
         name={name}
         defaultValue={defaultValue}
-        className="input input-bordered"
+        className={`input input-bordered ${size}`}
       />
-      <div className="label">
-      </div>
-    </label>
+    </div>
   );
 };
 

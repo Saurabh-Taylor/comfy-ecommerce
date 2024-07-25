@@ -1,8 +1,15 @@
-# React + Vite
+# comfy-ecommerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tech Stack
+- React
+- Redux-Toolkit
+- TailwindCSS
+- Daisy UI
+- Tanstack query (react-query)
+- react-router
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# features
+1. products page pagination
+2. products page sorting on various filters
+3. Grid view and list view implementation
+4. search products feature
