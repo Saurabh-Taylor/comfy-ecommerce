@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import {ProductsGrid , ProductsList} from './index'
 import { useLoaderData } from 'react-router'
 import { BsFile, BsFillGridFill, BsList } from 'react-icons/bs'
-import { RiH5 } from 'react-icons/ri'
 
 
 
@@ -35,7 +34,7 @@ const ProductContainer = () => {
      {/* PRODUCTS */}
      {
      totalProducts === 0 ? (<h5 className='text-2xl  mt-16' >
-      <RiH5/> Sorry No Products As of Your Search
+       Sorry No Products As of Your Search
     </h5>):(layout ==="grid"?
       (<ProductsGrid/>
       ):(
