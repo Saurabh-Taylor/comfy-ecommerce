@@ -1,34 +1,22 @@
 
 import { BsCart3 , BsMoonFill , BsSunFill } from "react-icons/bs";
 import { FaBarsStaggered } from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Navlinks } from "./index";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../redux/features/userSlice";
 
 
-const themes ={
-    winter:"winter",
-    dracula:"dracula"
-}
-
-const getThemeFromLocalStorage = ()=>{
-        return localStorage.getItem("theme") || themes.winter
-    }
 
 const Navbar = () => {
-    
-    const [theme, setTheme] = useState(getThemeFromLocalStorage())
-    const handleTheme = ()=>{
 
-        const {dracula ,winter} = themes
-        const getTheme  = theme === dracula ? winter : dracula
-        setTheme(getTheme)
+    const dispatch = useDispatch()
+    const handleTheme = ()=>{
+       dispatch(toggleTheme())
     }
 
-    useEffect(()=>{
-        document.documentElement.setAttribute("data-theme",theme)
-        localStorage.setItem("theme" , theme)
-    } ,[theme])
+    const itemsInCart = useSelector(store=> store.cart.numItemsInCart)
 
     
   return (
@@ -62,12 +50,13 @@ const Navbar = () => {
                     <BsMoonFill className="swap-off h-5 w-5" />
                 </label>
                 {/* CART LINK */}
+                <Link to="/cart" >
                 <div className="btn btn-ghost btn-circle btn-md ml-4 " >
                    <div className="indicator" >
                     <BsCart3 className="h-6 w-6" />
-                    <span className="badge badge-sm badge-primary indicator-item " >8</span>
+                    <span className="badge badge-sm badge-primary indicator-item " >{itemsInCart}</span>
                    </div>
-                </div>
+                </div></Link>
             </div>
         </div>
     </nav>

@@ -2,10 +2,17 @@ import axios from 'axios'
 import { FeaturedProducts, Hero } from '../components'
 import { axiosInstance } from '../axiosInstance'
 
+let url  = "/products?featured=true"
 
-let getFeaturedProduct  = "/products?featured=true"
-export const loader  = async()=>{
-  const response  = await axiosInstance(getFeaturedProduct)
+const featuredProductsQuery = {
+  queryKey: ['featuredProducts'],
+  queryFn:()=> axiosInstance(url)
+
+}
+
+
+export const loader  = (queryClient)=> async()=>{
+  const response  = await queryClient.ensureQueryData(featuredProductsQuery)
   const products = response.data.data
   return {products}
 }

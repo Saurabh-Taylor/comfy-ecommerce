@@ -4,7 +4,7 @@ import { axiosInstance } from "../axiosInstance";
 
 const url = "/products";
 
-export const loader = async ({ request }) => {
+export const loader = (queryClient)=> async ({ request }) => {
   /*
   It takes a URL string from the request.url property.
   It creates a URL object from that URL string.

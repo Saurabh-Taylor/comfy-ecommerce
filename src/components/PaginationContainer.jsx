@@ -3,6 +3,10 @@ import { useLoaderData, useLocation, useNavigate } from "react-router";
 const PaginationContainer = () => {
   const { meta } = useLoaderData();
 
+    console.log(meta);
+    
+  
+
   const { pageCount, page } = meta.pagination;
 
   const { search, pathname } = useLocation();
@@ -15,7 +19,6 @@ const PaginationContainer = () => {
   const handlePageChange = (pageNumber) => {
     const searchParams = new URLSearchParams(search);
     searchParams.set("page ", pageNumber);
-    console.log(pageNumber);
     navigate(`${pathname}?${searchParams.toString()}`);
   };
   if (pageCount < 2) return null;
